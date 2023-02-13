@@ -1,8 +1,5 @@
 # Basic_AI_Rock_classifier_with_gradio
 
-
-# Basic_AI_Rock_classifier_with_gradio
-
 Place here image related to the projects
 
 ---------------------------------------------------------------------------------------------------------
