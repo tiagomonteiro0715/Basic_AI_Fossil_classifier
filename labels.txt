@@ -1,0 +1,7 @@
+0 Arenito
+1 Basalto
+2 Calcite
+3 Halite
+4 Marga
+5 marmore
+6 Quartzo
