@@ -1,8 +1,11 @@
 # Basic_AI_Rock_classifier_with_gradio
 
-Place here image related to the projects
 
----------------------------------------------------------------------------------------------------------
+![Image of a montain](https://github.com/tiagomonteiro0715/Basic_AI_Rock_classifier_with_gradio/blob/main/undraw_Photo_re_5blb.png
+)
+
+
+
 
 
 ## Project Description
