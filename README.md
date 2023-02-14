@@ -12,19 +12,20 @@
 
 ### What your application does?
 
-Simple web app that with a machine learning model takes the image of a rock as input and outputs an histogram with the confidence levels of the predictions
- 
+This is a simple web app that uses a machine learning model to take a rock image as input and outputs a dictionary containing the confidence levels of each rock label.
+
 ### Why you used the technologies you used?
 
-Python, gradio.app and teachable machine
+This project employs Python, Gradio.app, and machine learning models created with teachable machine.
 
-Very simple to use and to teach to others that know little about machine learning    
-    
+It's straightforward to use and teach others with limited knowledge of machine learning, and it's also easy to modify for other image types and maintain.
+
+
 ### Some of the challenges you faced and features you hope to implement in the future?
 
-None. This is the base for futuro projects. 
+Choosing the technology: uncertain whether to use the Python combination or another with Tensorflow.js and mainly HTML, CSS, and JavaScript, integrated into a website and app using ElectronJS and Apache Cordova. 
 
-Mainy simple educational projects
+No features are planned for the future as this is a simple educational project.
 
 -----
 
@@ -46,7 +47,8 @@ Mainy simple educational projects
 
 #### Project Roadmap
 
-This project is the basic arquitecture for any project that uses two main techinolgies related to python and machine learning:
+This project provides the foundation for any project using two key technologies related to Python and machine learning:
+
 - Build & share delightful machine learning apps  [gradio.app](https://gradio.app/)
 - Tool to very easily create machine learning models [teachable machine](https://teachablemachine.withgoogle.com/)
 
@@ -107,13 +109,27 @@ if __name__ == "__main__":
 ```
 Otherwise, It can be used as the arquitecture for any machine learning classification projects with https://teachablemachine.withgoogle.com/ 
 
+
+-----
+
 </a>
 
 <a name="credits">
 
 #### Include Credits, Authors and acknowledgment for contributions
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat fringilla eros nec mattis. Cras nec sagittis risus, vel mattis odio. Sed erat massa, commodo nec rutrum ac, tincidunt quis magna. Pellentesque non tristique ante. Phasellus convallis ante tincidunt lacus tempor aliquam. Donec quis ipsum laoreet, pretium ligula quis, pulvinar ante. Nam fringilla nunc in accumsan tempus. 
+##### Programmer that wrote the code of this repository
+
+[Tiago Monteiro](https://github.com/tiagomonteiro0715)
+
+##### Geology student from Lisbon University guided the selection of rocks in the images
+
+Tomás Carneiro
+
+Email: tomascarneiro62@gmail.com
+
+
+Instagram: https://www.instagram.com/tomas_carneiro_999_/
 
 </a>
 
