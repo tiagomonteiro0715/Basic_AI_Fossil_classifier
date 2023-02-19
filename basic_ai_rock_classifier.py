@@ -10,8 +10,18 @@ model = load_model(r"keras_model.h5", compile=False)
 # Load the labels
 class_names = open("labels.txt", "r").readlines()
 
-rocks_dict_keys = ["Arenito", "Basalto", "Calcite", "Halite", "Marga", "marmore", "Quartzo"]
+# Opening the labels.txt file and reading the lines.
+with open('labels.txt') as f:
+    lines = f.readlines()
 
+# Creating a list of the names of the rocks.
+rocks_dict_keys = []
+for line in lines:
+    if line.strip():
+        number, name = line.split()
+        rocks_dict_keys.append(name)
+        
+        
 prediction_values_dict = {}
 
 def histogram(data):
