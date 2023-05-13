@@ -3,6 +3,7 @@ from keras.models import load_model  # TensorFlow is required for Keras to work
 from PIL import Image, ImageOps  # Install pillow instead of PIL
 import numpy as np
 import gradio as gr
+import matplotlib.pyplot as plt
 
 # Load the model
 model = load_model(r"keras_model.h5", compile=False)
@@ -14,25 +15,51 @@ class_names = open("labels.txt", "r").readlines()
 with open('labels.txt') as f:
     lines = f.readlines()
 
-# Creating a list of the names of the rocks.
-rocks_dict_keys = []
+# Creating a list of the names of the fossils.
+fossils_dict_keys = []
 for line in lines:
     if line.strip():
         number, name = line.split()
-        rocks_dict_keys.append(name)
+        fossils_dict_keys.append(name)
         
         
 prediction_values_dict = {}
 
-def histogram(data):
-    labels = list(data.keys())
-    values = list(data.values())
+def plot_pie_chart(data):
+    # get the sum of all values
+    total = sum(data.values())
 
-    fig = gr.data_to_histogram(values)
-    fig.update_layout(xaxis_tickvals=list(range(len(labels))),
-                      xaxis_ticktext=labels)
-    
-    return fig
+    # sort the data by value in descending order
+    sorted_data = dict(sorted(data.items(), key=lambda x: x[1], reverse=True))
+
+    # create a new dictionary with the four biggest slices and group the rest as "others"
+    new_data = dict(list(sorted_data.items())[:3])
+    others_size = total - sum(new_data.values())
+    new_data['others'] = others_size
+
+    # create the pie chart
+    labels = list(new_data.keys())
+    sizes = list(new_data.values())
+
+    explode = (0.1, 0, 0, 0)
+
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct='%1.1f%%', 
+            explode=explode,startangle=90 )
+    ax.axis('equal')
+    plt.close(fig)
+
+    # save the pie chart as a NumPy array
+    fig_canvas = fig.canvas
+    fig_canvas.draw()
+    fig_array = np.frombuffer(fig_canvas.buffer_rgba(), dtype=np.uint8)
+
+    # reshape the array to the original figure size
+    fig_array = fig_array.reshape(fig_canvas.get_width_height()[::-1] + (4,))
+
+    return fig_array
+
+
 
 def classify_image(img):
   """
@@ -65,10 +92,11 @@ def classify_image(img):
 
 # Predicting the image and then creating a dictionary with the prediction values.
   prediction = model.predict(correct_size_normalized_image_array)
-  for i, key in enumerate(rocks_dict_keys):
+  for i, key in enumerate(fossils_dict_keys):
     prediction_values_dict[key] = prediction[0, i]
+
   
-  return prediction_values_dict
+  return plot_pie_chart(prediction_values_dict)
 
 
 
@@ -88,9 +116,9 @@ if __name__ == "__main__":
   interface = gr.Interface(
     fn=classify_image, 
     inputs=gr.inputs.Image(), 
-    outputs=gr.outputs.Textbox(), 
-    title="Basic AI Rock Classifier",
-    description="Simple web app that with a machine learning model takes the image of a rock as input and outputs an histogram with the confidence levels of the predictions",
+    outputs='image',
+    title="Basic AI fossil Classifier",
+    description="Simple web app that with a machine learning model takes the image of a fossil as input and outputs an pie chard with the confidence levels of the predictions",
     article = "This project is a very simple project not to be used professionaly",
     style=style
     )
