@@ -1,4 +1,4 @@
-# Basic_AI_Rock_classifier_with_gradio
+# Basic_AI_Fossil_classifier_with_gradio
 
 
 ![Image of a montain](https://github.com/tiagomonteiro0715/Basic_AI_Rock_classifier_with_gradio/blob/main/undraw_Photo_re_5blb.png
