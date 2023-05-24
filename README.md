@@ -12,7 +12,7 @@
 
 ### What your application does?
 
-This is a simple web app that uses a machine learning model to take a rock image as input and outputs a dictionary containing the confidence levels of each rock label.
+This is a simple web app that uses a machine learning model to take a fossil image as input and outputs pie chard containing the confidence levels of each fossil label.
 
 ### Why you used the technologies you used?
 
@@ -99,8 +99,8 @@ if __name__ == "__main__":
     fn=classify_image, 
     inputs=gr.inputs.Image(), 
     outputs=gr.outputs.Textbox(), 
-    title="Basic AI Rock Classifier",
-    description="Simple web app that with a machine learning model takes the image of a rock as input and outputs an histogram with the confidence levels of the predictions",
+    title="Basic AI fossil Classifier",
+    description="Simple web app that with a machine learning model takes the image of a fossil as input and outputs an pie chard with the confidence levels of the predictions",
     article = "This project is a very simple project not to be used professionaly",
     style=style
     )
@@ -122,7 +122,7 @@ Otherwise, It can be used as the arquitecture for any machine learning classific
 
 [Tiago Monteiro](https://github.com/tiagomonteiro0715)
 
-##### Geology student from Lisbon University guided the selection of rocks in the images
+##### Geology student from Lisbon University guided the selection of fossil in the images
 
 Tomás Carneiro
 
